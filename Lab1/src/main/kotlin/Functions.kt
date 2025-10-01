@@ -1,7 +1,7 @@
 
 //the module needs a main function, butother functions canbe created after or before the main
 
-fun add (number1: Int,number2: Int): Int {
+fun add1 (number1: Int,number2: Int): Int {
     return number1 + number2
 }
 
@@ -18,7 +18,7 @@ fun addAll (vararg numbers: Int): Int {
 }
 
 fun main() {
-    println (add(number1=10, number2=20))
+    println (add1(number1=10, number2=20))
     println (addNumbers(number1=10, number2=20))
     println (addNumbers()) //0+0
     println (addNumbers(number1=3)) //3+0
