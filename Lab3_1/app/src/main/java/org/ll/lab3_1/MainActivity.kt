@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.ll.lab3_1.ui.theme.Lab3_1Theme
 
@@ -37,6 +38,13 @@ class MainActivity : ComponentActivity() {
 // only one composable function can call another composable function
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
+    // version 1 simple text
+/*
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    ) */
+    //version 2 formated text
     Text(
         text = "Hello $name!",
         modifier = modifier.background (
@@ -50,25 +58,27 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
+@Preview( showSystemUi = true,
+    showBackground = true)
 @Composable
 fun GreetingPreview() {
     Lab3_1Theme {
-        /* //  Version 1
+         //  Version 1  app overlaps the system headers
+/*
              Greeting("Android",
-
-             modifier = Modifier.padding(top=100.dp, start = 100.dp))
-         */
-       /* //  Version 1
-            Greeting("Android",
-
-            modifier = Modifier.padding(top=100.dp, start = 100.dp))
-        */
+             modifier = Modifier)
+*/
+        //  Version 2 manualy handling the overlapping
+/*
+                    Greeting("Android",
+                    modifier = Modifier.padding(top=100.dp, start = 100.dp))
+*/
+        // Version 3 That's the one!
 
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
             // provides the default distribution
             Greeting(
-                name = "Android",
+                name = "Luisa",
                 modifier = Modifier.padding(innerPadding)
             )
         }
