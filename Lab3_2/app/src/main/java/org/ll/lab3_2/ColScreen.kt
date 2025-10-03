@@ -26,16 +26,15 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ColScreen (modifier: Modifier = Modifier) {
 
-    // Using col layuot
+    // Using column layout for showing an image and a text
 
 
     //How to load an image?
-
-    // jpg and other (non-java,non-kotlin resource)
+    // if it's a jpg and other (non-java,non-kotlin resource)
     // copy it in the folder drawable
     // reference it as is unique id = R.drawable.name
 
-    // svg - impor it in the IDE use as image vector
+    // if it's a svg - import it in the IDE use as image vector
     Scaffold { innerPadding ->
         Column (
             modifier = Modifier

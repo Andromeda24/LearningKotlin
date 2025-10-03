@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @Composable
 fun RowScreen (modifier: Modifier = Modifier) {
 
-    // Version 1. display two texts with  no  layout was chosen => text overlaping
+    // Version 1. display two texts with no layout => texts overlap one to each other
     /*Scaffold { innerPadding ->
         Text (
             text = "MIU",
@@ -29,7 +29,7 @@ fun RowScreen (modifier: Modifier = Modifier) {
             modifier = Modifier.padding(innerPadding)
         )
     }*/
-    // Version 2. Using row layuot
+    // Version 2. Using row layout
     Scaffold { innerPadding ->
         Row (
             modifier = Modifier

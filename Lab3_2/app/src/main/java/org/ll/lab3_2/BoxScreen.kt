@@ -24,16 +24,17 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun BoxScreen (modifier: Modifier = Modifier) {
 
-   // create 3 images. 1 and 3 fixed in the cornersand iage 2 is bigger and change while clicking he other two
+   // create 3 images. 1 and 3 are fixed in the top corners and a bigger image 2 fills the center.
+    // Image2 changes while the user clicks the other two images
     Scaffold { innerPadding ->
         Box(
             modifier = Modifier
                 .padding(innerPadding)
         ) {
             // var myImage = Icons.Default.Person
-            // myImage is a local variable tah is reser whenever the screen is recomposed
+            // myImage is a local variable that is reset whenever the screen is recomposed
             //to store the last value use remember function
-            //
+            //the clause by instead of = overlap setters and getters to assure the safe handling of the variable
             var myImage by remember { mutableStateOf( Icons.Default.Person) }
             Image (imageVector = Icons.Default.Lock,
                 contentDescription = "lock icon",

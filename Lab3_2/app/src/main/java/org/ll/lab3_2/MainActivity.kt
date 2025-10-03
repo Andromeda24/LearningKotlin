@@ -20,17 +20,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Lab3_2Theme {
-                /* Version 1
-                  Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-                    */
-                // Version 2:  call another screen
-                ColScreen()
+                    //   call another screen
+                    // RowScreen()
+                    // ColScreen()
+                    // BoxScreen()
+                    TextStyleScreen()
+                    //RegistrationScreen()
 
             }
         }
@@ -44,11 +39,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         modifier = modifier
     )
 }
-
+/*
+// IDE will show one screen for each compossable anotated as @preview
 @Preview(showBackground = true,
     showSystemUi = true,
 )
-
+*/
 @Composable
 fun WhiteGreetingPreview() {
     Lab3_2Theme {
@@ -83,6 +79,11 @@ fun BlackGreetingPreview() {
 )
 
 @Composable
-fun BoxScreenPreview() {
-    ColScreen()
+fun ScreenPreview() {
+
+    // RowScreen()
+    // ColScreen()
+    // BoxScreen()
+    TextStyleScreen()
+    //RegistrationScreen()
 }
