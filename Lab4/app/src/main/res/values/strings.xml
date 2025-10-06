@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">Lab4</string>
-    <string name="miu_">Lab4</string>
+    <string name="miu_admission">Compro admission team</string>
+    <string name="miu_prefessionals">Compro professsionals</string>
+    <string name="miu_renuka">Compro faculty and students</string>
+    <string name="miu_friends">Compro friends</string>
+    <string name="miu_graduation">Compro graduation</string>
+    <string name="miu_campus">MIU Campus in Fairfield</string>
+    <string name="miu_rainbow">Afternoon rainbow</string>
+    <string name="miu_sustainable">Sustainable living</string>
 
 </resources>

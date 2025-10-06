@@ -121,7 +121,7 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
                         }
                     )
                     Text(text = gender)
-                    // @todo include radio button and text in a row layout to look preety
+
                 }
             }
             // Include submit and clear buttons
@@ -156,7 +156,7 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
                             // 2. create a toast
                             val toast = Toast.makeText(
                                 context,
-                                "Registration successful for $username ",
+                                "Registration successful for $username ($selectedGender) ",
                                 Toast.LENGTH_SHORT
                             )
                             toast.show()

@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.layout.waterfall
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Card
 
@@ -30,7 +30,7 @@ import org.ll.lab4.data.DataSource
 
 // type comp for make it filling the @composable staff
 @Composable
-fun ColScreen (modifier: Modifier = Modifier) {
+fun LazyRowScreen (modifier: Modifier = Modifier) {
 
     // Using col layuot
 
@@ -41,9 +41,9 @@ fun ColScreen (modifier: Modifier = Modifier) {
     // copy it in the folder drawable
     // reference it as is unique id = R.drawable.name
 
-    // svg - impor it in the IDE use as image vector
+    // svg - import it in the IDE use as image vector
     Scaffold { innerPadding ->
-        LazyColumn(
+        LazyRow(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize()
@@ -75,14 +75,14 @@ fun ColScreen (modifier: Modifier = Modifier) {
             items(DataSource.loadData()) { item ->
                 // Column () version 1. easy but not good with different image sizes
                 // Card () version 2
-                Card() // allows tit to llook pretty handling image/text as an unit with borders and so on
+                Card() // allows it to look pretty handling image/text as an unit with borders and so on
 
                 {
                     Image(
                         painter = painterResource(item.image),
                         contentDescription = null,
-                        modifier = Modifier.fillMaxWidth()
-                            .height(200.dp),
+                        modifier = Modifier.height(200.dp),
+
                         contentScale = ContentScale.Crop
                     )
                     Text(
@@ -100,7 +100,7 @@ fun ColScreen (modifier: Modifier = Modifier) {
     showSystemUi = true
 )
 @Composable
-fun ColScreenPreview (modifier: Modifier = Modifier) {
-    ColScreen()
+fun RowScreenPreview (modifier: Modifier = Modifier) {
+    LazyRowScreen()
 
 }
