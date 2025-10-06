@@ -24,8 +24,8 @@ class MainActivity : ComponentActivity() {
                     // RowScreen()
                     // ColScreen()
                     // BoxScreen()
-                    TextStyleScreen()
-                    //RegistrationScreen()
+                    //TextStyleScreen()
+                    RegistrationScreen()
 
             }
         }

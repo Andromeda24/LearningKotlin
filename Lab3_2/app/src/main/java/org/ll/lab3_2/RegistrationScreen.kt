@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -20,6 +22,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -38,30 +42,48 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
         ){
             val context = LocalContext.current
             var username by remember { mutableStateOf (value = "") }
+            var usernameError by remember { mutableStateOf (value = false)}
             // the by keywords delegates getters and setters to MutableState
             // by default, the text is stored nowhere, so you need to handle manually the event of typying each letter and store it in a variable
+
+            if (username.isNotEmpty()) {
+                Text(
+                    text = "Hello, $username!",
+                    modifier = Modifier.padding(bottom = 16.dp),
+                    style = MaterialTheme.typography.bodyLarge,
+
+                )
+            }
+
             TextField(
-                value="default",
+                value=username,
                 onValueChange = {
                     data -> username = data
                 },
-                label = { Text(text="Username")},
+                label = { Text(text="username")},
                 keyboardOptions = KeyboardOptions (keyboardType =KeyboardType.Email),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(all = 10.dp)  // shaping the keyboard into the screen
+                    .padding(all = 10.dp) , // shaping the keyboard into the screen
+                isError = usernameError,
+                supportingText = {
+                    if (usernameError) {
+                        Text(text = "Username is required")
+                    }
+                }
             )
 
             var password by remember { mutableStateOf (value = "") }
 
-            TextField(
-                value="",
+            OutlinedTextField(
+                value=password,
                 onValueChange = {
                         //data -> password = data
                         password = it // other way to write the function
                 },
                 label = { Text(text="Password")},
-                keyboardOptions = KeyboardOptions (keyboardType =KeyboardType.Password),
+                keyboardOptions = KeyboardOptions (keyboardType = KeyboardType.NumberPassword),
+                visualTransformation = PasswordVisualTransformation(),
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(all = 10.dp)  // shaping the keyboard into the screen
@@ -69,13 +91,14 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
 
             var phoneNumber by remember { mutableStateOf (value = "") }
             
-            TextField(
-                value="",
+            OutlinedTextField(
+                value=phoneNumber,
                 onValueChange = {
                     phoneNumber = it // other way to write the function
                 },
                 label = { Text(text="PhoneNumber")},
                 keyboardOptions = KeyboardOptions (keyboardType =KeyboardType.Number),
+                placeholder = { Text("Phone number")},
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(all = 10.dp)  // shaping the keyboard into the screen
@@ -102,7 +125,7 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
                 }
             }
             // Include submit and clear buttons
-            // Create a row that includes twho buttons
+            // Create a row that includes two buttons
 
             Row (
 
@@ -115,6 +138,7 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
                         password = ""
                         phoneNumber = ""
                         selectedGender = genders[0]
+                        usernameError = false
                   },
 
                 ) {
@@ -126,16 +150,17 @@ fun RegistrationScreen (modifier: Modifier = Modifier) {
 
                         // 1. Validate the input and show the supportedText in red and a trailerIcon
                         if (username.isEmpty()){
-
+                            usernameError = true
+                        } else {
+                            usernameError = false
+                            // 2. create a toast
+                            val toast = Toast.makeText(
+                                context,
+                                "Registration successful for $username ",
+                                Toast.LENGTH_SHORT
+                            )
+                            toast.show()
                         }
-
-                        // 2. create a toast
-                        val toast = Toast.makeText(
-                            context,
-                            "Registration successful for $username ",
-                             Toast.LENGTH_SHORT
-                        )
-                        toast.show()
                     },
 
                     ) {
