@@ -19,7 +19,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Lab4Theme {
-                ColScreen()
+                //ColScreen()
+                LazyVerticalGridScreen()
             }
         }
     }
