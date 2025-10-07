@@ -30,12 +30,14 @@ class MainActivity : ComponentActivity() {
             Lab5Theme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     // Version 1
-                    // The problem with this solution in that mixes data and UI in the same file
+                    // The problem is solved in a way that mixes data and UI in the same file
                     //
-                    /* MainScreen(
+                    MainScreen(
                         modifier = Modifier.padding(innerPadding)
-                    )*/
+                    )
                     // Version2
+
+
                 }
             }
         }
