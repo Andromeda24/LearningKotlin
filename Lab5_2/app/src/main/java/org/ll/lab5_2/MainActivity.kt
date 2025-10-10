@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import org.ll.lab5_2.ui.ABEScreen
 import org.ll.lab5_2.ui.theme.Lab5_2Theme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             Lab5_2Theme {
-
+                ABEScreen(Modifier)
             }
         }
     }

@@ -5,17 +5,23 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 
-fun main(){
+fun main() {
+    testRunCatching()
+}
+fun testRunCatching() {
     runBlocking {
-        val forecast: Deferred<String> = async {
-            getForecstE()
-            error("something went wrong") // launch an exception if unhandled
-        // raises IlegalStateException at runtime
+        val forecast = async {
+            runCatching { // catching for errors. We also can use a try/catch
+                getForecstE()
+                error("something went wrong") // launch an exception if unhandled
+                // raises IlegalStateException at runtime
+            }
+
         }
         val temperature: Deferred<String> = async {
             getTemperatureE()
         }
-        println("Forecast: ${forecast.await()} and temperature ${temperature.await()}")
+        println("Forecast: ${forecast.await().getOrElse { "N/A" }} and temperature ${temperature.await()}")
 
     }
 

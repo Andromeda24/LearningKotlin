@@ -1,6 +1,6 @@
 package org.ll.lab5_2.ui
 
-class ABEUIState (
+data class ABEUIState (
     val alphabet: Char,
     val word:String,
     val isCompleted : Boolean = false,
