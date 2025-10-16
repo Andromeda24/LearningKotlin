@@ -9,11 +9,14 @@ import org.ll.lab5_2.model.ABRepository
 import org.ll.lab5_2.model.ABRepositoryImpl
 import org.ll.lab5_2.data.AlphabetData
 import org.ll.lab5_2.data.AlphabetData.alphabetData
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class ABEViewModel(
-    private val ABrepository : ABRepository
+@HiltViewModel
+class ABEViewModel (
+     @Inject private val ABrepository : ABRepository
 ): ViewModel(){
-    // AB referes to the data
+    // AB refers to the data
     //private val ABdata = AlphabetData.alphabetData
 
     private val ABdata = ABrepository.getAlphabet()
@@ -22,7 +25,7 @@ class ABEViewModel(
         value = ABEUIState(
             alphabet =ABdata[0].first,
             word = ABdata[0].second,
-            isCompleted = true
+            isCompleted = false
         )
     )
     // Expose it as a read only state

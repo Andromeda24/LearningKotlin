@@ -15,8 +15,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 
 import androidx.lifecycle.viewmodel.compose.viewModel
+import org.ll.lab5_2.data.AlphabetData
 import org.ll.lab5_2.model.ABRepositoryImpl
 import org.ll.lab5_2.ui.theme.Lab5_2Theme
 
@@ -28,10 +30,15 @@ fun ABEScreen (modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ){
-            // get ViewModel Instance
+            // get ViewModel Instance without di
+            /*
             val myViewModel: ABEViewModel = viewModel {
-                ABEViewModel(ABRepositoryImpl())
+                ABEViewModel(ABRepositoryImpl(AlphabetData.alphabetData))
             }
+*/
+            // get ViewModel Instance with di
+            val myViewModel: ABEViewModel = hiltViewModel()
+
 
             val myState: State<ABEUIState> = myViewModel.currentState.collectAsState()
             Text(text = "${myState.value.alphabet}")
