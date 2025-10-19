@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "650835906805",
+    "project_id": "lab11aiimage",
+    "storage_bucket": "lab11aiimage.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650835906805:android:102a711c9ca649ae4235bc",
+        "android_client_info": {
+          "package_name": "org.ll.lab11aiimage"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7t9mGirsvLMoI7KaRXz6sms0uyZd4dQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650835906805:android:d46e98fd760045124235bc",
+        "android_client_info": {
+          "package_name": "org.ll.lab11image2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC7t9mGirsvLMoI7KaRXz6sms0uyZd4dQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
