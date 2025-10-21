@@ -11,7 +11,9 @@ class ItemRepositoryImpl(
     override fun getAllItems(): Flow<List<Item>> {
         return  itemDao.getAllItems()
     }
-    override suspend fun insertItem(item: Item) {
-        return itemDao.insertItem(item)
+    override suspend fun insertItem(item: Item): Result<Unit> {
+        return runCatching {
+            itemDao.insertItem(item)
+        }
     }
 }

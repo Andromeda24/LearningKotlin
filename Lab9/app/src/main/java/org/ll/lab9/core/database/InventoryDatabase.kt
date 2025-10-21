@@ -23,7 +23,7 @@ abstract class InventoryDatabase() : RoomDatabase() {
                 Room.databaseBuilder(
                     context = context.applicationContext,
                     klass = InventoryDatabase::class.java,
-                    name = "item_database"
+                    name = "my_database"
                 ).build()
                     .also {
                         INSTANCE = it

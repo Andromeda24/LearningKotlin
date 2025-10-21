@@ -30,7 +30,7 @@ class LoginViewModel (
             if (existingCredentials?.username == "admin" &&
                 existingCredentials?.password == "admin"){
                 Log.i("LoginVM", "User already logged in")
-        }
+            }
         }
     }
 

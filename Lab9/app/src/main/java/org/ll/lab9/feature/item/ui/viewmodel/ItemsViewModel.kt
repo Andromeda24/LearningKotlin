@@ -11,6 +11,8 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
+import org.ll.lab9.core.database.entity.Item
 import org.ll.lab9.feature.item.domain.ItemRepository
 import org.ll.lab9.feature.item.ui.uistate.ItemListUiState
 
@@ -33,4 +35,11 @@ class ItemsViewModel(
             ItemListUiState()
         )
 
+    fun addItem(name: String, quantity: Int, price: Double){
+        viewModelScope.launch {
+            itemRepository.insertItem(Item(0, name, price ,
+                quantity ))
+        }
+
+    }
 }

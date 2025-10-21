@@ -4,6 +4,6 @@ import kotlinx.coroutines.flow.Flow
 import org.ll.lab9.core.database.entity.Item
 
 interface ItemRepository {
-    suspend fun insertItem(item: Item)
+    suspend fun insertItem(item: Item):Result<Unit>
     fun getAllItems(): Flow<List<Item>>
 }
